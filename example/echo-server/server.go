@@ -33,13 +33,13 @@ func echoServer(w http.ResponseWriter, req *http.Request) {
 
 	// calculate and add fingerprints to the response
 	if err := response.fingerprintJA3(); err != nil {
-		logger.Printf(err.Error())
+		logger.Print(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	if err := response.fingerprintJA4(); err != nil {
-		logger.Printf(err.Error())
+		logger.Print(err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
